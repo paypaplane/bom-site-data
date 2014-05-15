@@ -1,0 +1,22 @@
+{
+  "name": "bom-api",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yoik/bom-api"
+  },
+  "keywords": [
+    "bom"
+  ],
+  "author": "yoik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoik/bom-api/issues"
+  },
+  "homepage": "https://github.com/yoik/bom-api",
+  "description": "node wrapper for BOM (bereau of meteorology) api"
+}
