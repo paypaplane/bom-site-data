@@ -16,7 +16,7 @@ grape('scrape all states', function(t) {
     t.plan(2);
     scrapeStates(['qld','vic','nsw'], function(error, data) {
         t.notOk(error, 'error should be null');
-        t.ok(data.length === 3, 'data should have three objects');
+        t.ok(Object.keys(data).length === 3, 'data should have three objects');
         t.end();
     });
 

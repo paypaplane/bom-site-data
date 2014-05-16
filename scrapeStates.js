@@ -1,16 +1,24 @@
-var kgo = require('kgo');
 var scrapeState = require('./scrapeState');
 
-function scrapeStates(states, callback){
-    kgo('stateData', function(done){
-        this.count(states.length);
+function scrapeStates(stateCodes, callback) {
+    var states = {};
 
-        states.forEach(function(state){
-            scrapeState(state, done);
+    var i = 0;
+    stateCodes.forEach(function(stateCode, index) {
+        scrapeState(stateCode, function(error, state) {
+            if (error) {
+                callback(error);
+                return;
+            }
+
+            i++;
+            states[stateCode] = state;
+
+            if (i === stateCodes.length) {
+                callback(null, states);
+            }
         });
-    })(['stateData'], function(states){
-        callback(null, states);
-    });    	
+    });
 };
 
 module.exports = scrapeStates;
