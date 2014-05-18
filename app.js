@@ -2,7 +2,7 @@
 var fs = require('fs');
 var scrapeStates = require('./scrapeStates');
 var states = ['nsw','vic','qld','sa','wa','tas','nt','act'];
-// var states = ['nsw', 'vic', 'qld', 'sa', 'wa', 'tas', 'nt'];
+// var states = ['act'];
 
 // var server = http.createServer(function(request, response) {
 

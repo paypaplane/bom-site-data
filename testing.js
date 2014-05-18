@@ -10,17 +10,21 @@ function scrapeState(state, callback) {
         var $ = cheerio.load(body);
         var data = {};
 
-        $(".tabledata tbody tr th a").each(function() {
+        var xx = $(".tabledata tbody tr th a").toArray();
+        xx.pop();
+        if(xx){
            
-            var locationAndJson = $(this);
+           
           
 
-            var str = locationAndJson.attr('href').split('.')[1];
+            // var str = locationAndJson.attr('href').split('.')[1];
            
-            console.log(str);
-
+            console.log(xx);
+        } else {
+            scrapeState(state, callback);
+        }
     
-        });
+        // });
 
         // console.log(state);
         // console.log(data);
