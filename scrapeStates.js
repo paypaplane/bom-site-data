@@ -12,6 +12,7 @@ function scrapeStates(stateCodes, callback) {
             }
 
             i++;
+console.log(i, " out of ",stateCodes.length, "for", stateCode);
             states[stateCode] = state;
 
             if (i === stateCodes.length) {
@@ -22,3 +23,4 @@ function scrapeStates(stateCodes, callback) {
 };
 
 module.exports = scrapeStates;
+
