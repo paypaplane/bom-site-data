@@ -19,9 +19,10 @@ for (var state in bomdata) {
 
 }
 
-
 var percentage = (numberSet / (numberSet + numberEmpty)*100);
 console.log(percentage.toFixed(2)+"% full");
 
 // last value = 54.1% full
 // last value = 66.7% full
+// 77.69% full
+//85.73% full
