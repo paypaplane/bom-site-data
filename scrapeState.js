@@ -4,9 +4,9 @@ var geocoder = require('geocoder');
 var bomdata = require('./bomdata.json');
 
 var base_url = 'http://www.bom.gov.au/';
-var data = {};
 
 function scrapeState(state, callback) {
+var data = {};
 
     var url = '';
     if (state === 'act') {
