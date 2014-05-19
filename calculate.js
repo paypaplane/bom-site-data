@@ -20,5 +20,8 @@ for (var state in bomdata) {
 }
 
 
-var percentage = numberSet / (numberSet + numberEmpty);
-console.log(percentage.toFixed(3)+"% finished");
+var percentage = (numberSet / (numberSet + numberEmpty)*100);
+console.log(percentage.toFixed(2)+"% full");
+
+// last value = 54.1% full
+// last value = 66.7% full

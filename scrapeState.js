@@ -1,7 +1,6 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var geocoder = require('geocoder');
-// var fs = require('fs');
 var bomdata = require('./bomdata.json');
 
 var base_url = 'http://www.bom.gov.au/';
@@ -28,19 +27,16 @@ function scrapeState(state, callback) {
             var locationAndJson = $(this);
             var location = (locationAndJson.text());
             var siteNumber = locationAndJson.attr('href').split('.')[1];
-
-        
-            
             var locationIsSet = bomdata[state] && bomdata[state][location];
             var RunGeoLocate = false;
 
-            if (locationIsSet && typeof bomdata[state][location].lat === 'string'){
+            if (locationIsSet && typeof bomdata[state][location].lat === 'string') {
                 RunGeoLocate = true;
             } else if (!locationIsSet) {
                 RunGeoLocate = true;
             }
-                  
-            if (RunGeoLocate === true) {  // if the latitude is not set in the file, try again to find it
+
+            if (RunGeoLocate === true) { // if the latitude is not set in the file, try again to find it
 
                 geocoder.geocode(location + " " + state + ", Australia", function(err, geoData) {
                     console.log("hit geoloacte");
@@ -79,21 +75,19 @@ function scrapeState(state, callback) {
                         callback(null, data);
                     }
                 });
-            } else {  // else read the value from
+            } else { // else read the value from
                 data[location] = {
                     siteNumber: siteNumber,
                     lat: bomdata[state][location].lat,
                     lng: bomdata[state][location].lng
                 };
                 j++;
+                console.log(j, " of ", $(".tabledata tbody tr th a").length, "pulled data from local json");
                 if (j === $(".tabledata tbody tr th a").length) {
                     j = 0;
-                    console.log(j, " of ", $(".tabledata tbody tr th a").length, "pulled data from local json");
                     callback(null, data);
                 }
-
             }
-
         });
 
     });
