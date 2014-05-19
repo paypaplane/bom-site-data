@@ -29,12 +29,18 @@ function scrapeState(state, callback) {
             var location = (locationAndJson.text());
             var siteNumber = locationAndJson.attr('href').split('.')[1];
 
-            console.log(state, location);
-            console.log(bomdata[state][location].lat, typeof bomdata[state][location].lat);
+        
             
-            // var isNotLatSet = bomdata[state] && bomdata[state][location] && typeof bomdata[state][location].lat === 'string'
-            
-            if (isNotLatSet) {  // if the latitude is not set in the file, try again to find it
+            var locationIsSet = bomdata[state] && bomdata[state][location];
+            var RunGeoLocate = false;
+
+            if (locationIsSet && typeof bomdata[state][location].lat === 'string'){
+                RunGeoLocate = true;
+            } else if (!locationIsSet) {
+                RunGeoLocate = true;
+            }
+                  
+            if (RunGeoLocate === true) {  // if the latitude is not set in the file, try again to find it
 
                 geocoder.geocode(location + ", " + state + ", Australia", function(err, geoData) {
                     console.log("hit geoloacte");
@@ -82,7 +88,7 @@ function scrapeState(state, callback) {
                 j++;
                 if (j === $(".tabledata tbody tr th a").length) {
                     j = 0;
-                    // console.log(j, " of ", $(".tabledata tbody tr th a").length);
+                    console.log(j, " of ", $(".tabledata tbody tr th a").length, "pulled data from local json");
                     callback(null, data);
                 }
 
