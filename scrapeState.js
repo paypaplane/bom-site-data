@@ -1,7 +1,7 @@
 var request = require('request');
 var cheerio = require('cheerio');
 var geocoder = require('geocoder');
-var fs = require('fs');
+// var fs = require('fs');
 var bomdata = require('./bomdata.json');
 
 var base_url = 'http://www.bom.gov.au/';
@@ -42,7 +42,7 @@ function scrapeState(state, callback) {
                   
             if (RunGeoLocate === true) {  // if the latitude is not set in the file, try again to find it
 
-                geocoder.geocode(location + ", " + state + ", Australia", function(err, geoData) {
+                geocoder.geocode(location + " " + state + ", Australia", function(err, geoData) {
                     console.log("hit geoloacte");
                     j++;
 
