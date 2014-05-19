@@ -26,3 +26,4 @@ console.log(percentage.toFixed(2)+"% full");
 // last value = 66.7% full
 // 77.69% full
 //85.73% full
+//90%
