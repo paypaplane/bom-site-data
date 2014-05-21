@@ -9,10 +9,9 @@ function scrapeStates(stateCodes, callback) {
                 callback(error);
                 return;
             }
-
             i++;
             console.log(i, " out of ", stateCodes.length, "for", stateCode);
-            states[stateCode] = state; //////////broken, printing two layers of states
+            states[stateCode] = state[stateCode]; //////////broken, printing two layers of states
 
             if (i === stateCodes.length) {
                 callback(null, states);
