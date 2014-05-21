@@ -1,6 +1,5 @@
 var geocoder = require('geocoder');
 
-
 function convertAddressToLatitudeLongitude(locationString, callback) {
     geocoder.geocode(locationString, function(err, geoData) {
         console.log("hit geoloacte");

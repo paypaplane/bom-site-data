@@ -1,7 +1,8 @@
 var bomdata = require('./bomdata.json');
 var convertAddressToLatitudeLongitude = require('./convertAddressToLatitudeLongitude');
 
-function buildLocationObject(location, siteNumber, state, data, callback) {
+function buildLocationObject(location, siteNumber, state, callback) {
+    data = {};
     data[location] = {
         siteNumber: siteNumber
     };
@@ -29,13 +30,10 @@ function buildLocationObject(location, siteNumber, state, data, callback) {
 
     } else { // else read the value from
         data[location] = {
-            // siteNumber: siteNumber,
             lat: bomdata[state][location].lat,
             lng: bomdata[state][location].lng
         };
-
         callback(null, data);
-        return;
     }
 }
 

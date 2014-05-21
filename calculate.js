@@ -1,6 +1,5 @@
 var bomdata = require('./bomdata.json');
 
-
 var numberEmpty = 0;
 var numberSet = 0;
 
@@ -16,7 +15,6 @@ for (var state in bomdata) {
         	console.log(numberSet);
         }
     }
-
 }
 
 var percentage = (numberSet / (numberSet + numberEmpty)*100);
