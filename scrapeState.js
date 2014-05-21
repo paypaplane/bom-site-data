@@ -16,6 +16,7 @@ function scrapeState(state, callback) {
     } else {
         url = base_url + state + '/observations/' + state + 'all.shtml';
     }
+
     request(url, function(error, response, body) {
         if (error) {
             callback(error);
@@ -25,23 +26,19 @@ function scrapeState(state, callback) {
 
         var j = 0;
         $(".tabledata tbody tr th a").each(function() {
+           
             var scrapedLocationRow = $(this);
             var location = (scrapedLocationRow.text());
             var siteNumber = scrapedLocationRow.attr('href').split('.')[1];
 
             buildLocationObject(location, state, siteNumber, data, function(error, locationData) {
-
                 j++;
-
-                // AllLocationData = locationData;
-
-                console.log(locationData);
-
                 if (j === $(".tabledata tbody tr th a").length) {
                     console.log(j, " of ", $(".tabledata tbody tr th a").length);
                     callback(error, locationData);
                 }
             });
+
         });
     });
 };

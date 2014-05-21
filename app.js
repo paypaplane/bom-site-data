@@ -1,6 +1,7 @@
 var fs = require('fs');
 var scrapeStates = require('./scrapeStates');
-var states = ['nsw', 'vic', 'qld', 'sa', 'wa', 'tas', 'nt', 'act'];
+// var states = ['nsw', 'vic', 'qld', 'sa', 'wa', 'tas', 'nt', 'act'];
+var states = ['act'];
 
 scrapeStates(states, function(error, data) {
     if (error) {
