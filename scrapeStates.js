@@ -13,7 +13,6 @@ function scrapeStates(stateCodes, callback) {
             console.log(i, " out of ", stateCodes.length, "for", stateCode);
             
             states[stateCode] = state; //////////broken, printing two layers of states
-            console.log(state); //////////broken, printing two layers of states
 
             if (i === stateCodes.length) {
                 callback(null, states);
