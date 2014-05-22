@@ -1,4 +1,4 @@
-#bom-site-data
+#bom-site-data#
 
 Provides a list of all BOM (Bureau of Meteorology) Sites/stations with relevant site number, latitude and longitude information.
 
@@ -17,20 +17,20 @@ To check the status of the bomdata.json file run:
 node percentage.js
 
 Example bomdata.json:
-{
-    "sa": {
-        "Adelaide": {
-            "siteNumber": "94675",
-            "lat": -34.92862119999999,
-            "lng": 138.5999594
-        },
-        "Kuitpo": {
-            "siteNumber": "94683",
-            "lat": -35.2212485,
-            "lng": 138.6933004
-        },
-        "Edinburgh": {
-            "siteNumber": "95676",
-            "lat": -34.7461904,
-            "lng": 138.638449
-        },
+    {
+        "sa": {
+            "Adelaide": {
+                "siteNumber": "94675",
+                "lat": -34.92862119999999,
+                "lng": 138.5999594
+            },
+            "Kuitpo": {
+                "siteNumber": "94683",
+                "lat": -35.2212485,
+                "lng": 138.6933004
+            },
+            "Edinburgh": {
+                "siteNumber": "95676",
+                "lat": -34.7461904,
+                "lng": 138.638449
+            },
