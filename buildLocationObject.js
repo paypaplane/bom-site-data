@@ -3,9 +3,6 @@ var convertAddressToLatitudeLongitude = require('./convertAddressToLatitudeLongi
 
 function buildLocationObject(location, siteNumber, state, callback) {
     data = {};
-    data[location] = {
-        siteNumber: siteNumber
-    };
     var locationString = location + " " + state + ", Australia";
     var RunGeoLocate = false;
     var locationIsSet = bomdata[state] && bomdata[state][location];
@@ -21,7 +18,8 @@ function buildLocationObject(location, siteNumber, state, callback) {
                 console.log("error:", error);
                 return;
             }
-            data[location] = {
+            data = {
+                siteNumber: siteNumber,
                 lat: lat,
                 lng: lng
             };
@@ -29,7 +27,8 @@ function buildLocationObject(location, siteNumber, state, callback) {
         });
 
     } else { // else read the value from
-        data[location] = {
+        data = {
+            siteNumber: siteNumber,
             lat: bomdata[state][location].lat,
             lng: bomdata[state][location].lng
         };

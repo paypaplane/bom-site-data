@@ -20,6 +20,7 @@ function scrapeState(state, callback) {
         }
         var $ = cheerio.load(body);
 
+        var stateData = {};
         var j = 0;
         $(".tabledata tbody tr th a").each(function() {
            
@@ -27,13 +28,12 @@ function scrapeState(state, callback) {
             var location = (scrapedLocationRow.text());
             var siteNumber = scrapedLocationRow.attr('href').split('.')[1];
 
-            buildLocationObject(location, state, siteNumber, function(error, locationData) {
-                var stateData = {};
+            buildLocationObject(location, siteNumber, state, function(error, locationData) {
                 j++;
-                stateData[state] = locationData;
+                stateData[location] = locationData;
 
                 if (j === $(".tabledata tbody tr th a").length) {
-                    console.log(j, " of ", $(".tabledata tbody tr th a").length);
+                    // console.log(j, " of ", $(".tabledata tbody tr th a").length);
                     callback(error, stateData);
                 }
             });

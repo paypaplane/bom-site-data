@@ -2,7 +2,7 @@ var geocoder = require('geocoder');
 
 function convertAddressToLatitudeLongitude(locationString, callback) {
     geocoder.geocode(locationString, function(err, geoData) {
-        console.log("hit geoloacte");
+        // console.log("hit geoloacte");
         if (err) {
             console.log("error:", err);
             return;
@@ -17,7 +17,7 @@ function convertAddressToLatitudeLongitude(locationString, callback) {
             lat = "not found";
             lng = "not found";
         }
-        console.log(lat, lng);
+        // console.log(lat, lng);
         callback(null, lat, lng);
     });
 }

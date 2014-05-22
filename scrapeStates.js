@@ -1,8 +1,8 @@
 var scrapeState = require('./scrapeState');
 
 function scrapeStates(stateCodes, callback) {
-    var states = {};
     var i = 0;
+    var states = {};
     stateCodes.forEach(function(stateCode, index) {
         scrapeState(stateCode, function(error, state) {
             if (error) {
@@ -11,7 +11,9 @@ function scrapeStates(stateCodes, callback) {
             }
             i++;
             console.log(i, " out of ", stateCodes.length, "for", stateCode);
-            states[stateCode] = state[stateCode]; //////////broken, printing two layers of states
+            
+            states[stateCode] = state; //////////broken, printing two layers of states
+            console.log(state); //////////broken, printing two layers of states
 
             if (i === stateCodes.length) {
                 callback(null, states);
